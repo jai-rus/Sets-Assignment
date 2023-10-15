@@ -51,13 +51,16 @@ public class LinkedSet<T> implements SetInterface<T> {
 			//System.out.println("Added: " + firstNode.getData());
 			return true;
 		} else {
-			Node newNode = new Node(newEntry);
-			newNode.setNextNode(firstNode);
-			firstNode = newNode;
-			numOfEntries++;
-			//System.out.println("Added: " + firstNode.getData());
-			return true;
+			if (!contains(newEntry)) {
+				Node newNode = new Node(newEntry);
+				newNode.setNextNode(firstNode);
+				firstNode = newNode;
+				numOfEntries++;
+				//System.out.println("Added: " + firstNode.getData());
+				return true;
+			}
 		}
+		return false;
 	}
 	
 	//removes the first node
@@ -210,5 +213,25 @@ public class LinkedSet<T> implements SetInterface<T> {
 		}
 		
 		return commonItems;
+	}
+	
+	public SetInterface<T> difference(SetInterface<T> otherSet) {
+		Node curNode = firstNode;
+		SetInterface<T> leftOvers = new LinkedSet<T>();
+		
+		while (curNode != null) {
+			leftOvers.add(curNode.getData());
+			curNode = curNode.getNextNode();
+		}
+		
+		T[] otherSetArray= otherSet.toArray();
+		
+		for (int i = 0; i < otherSet.getCurrentSize(); i++) {
+			if(contains(otherSetArray[i])) {
+				remove(otherSetArray[i]);
+			}
+		}
+		
+		return leftOvers;
 	}
 }

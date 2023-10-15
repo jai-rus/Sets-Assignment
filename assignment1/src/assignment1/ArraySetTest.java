@@ -26,7 +26,7 @@ public class ArraySetTest {
 		
 		//Uses clear()
 		set1.clear();
-		System.out.println("Is empty = " + set1.isEmpty());
+		System.out.println("Clearing = " + set1.isEmpty());
 		
 		set1.add("A");
 		set1.add("B");
@@ -37,6 +37,7 @@ public class ArraySetTest {
 		System.out.println("Does this set contain Z: " + set1.contains("Z"));
 		
 		//Uses toArray()
+		System.out.println("This set has: ");
 		Object[] testArray = new Object[set1.getCurrentSize()]; 	
 		testArray = set1.toArray();
 		for (int i = 0; i < testArray.length; i++) {
@@ -47,9 +48,9 @@ public class ArraySetTest {
 		
 		SetInterface<String> set2 = new ResizeableArraySet<>();
 		//set2.add("B");
-		set2.add("A");
-		set2.add("B");
-		set2.add("C");
+		set2.add("D");
+		set2.add("E");
+		set2.add("F");
 		
 		//testing union
 		SetInterface<String> everything = set1.union(set2);
@@ -67,7 +68,7 @@ public class ArraySetTest {
 		set1.add("D");
 		set2.add("A");
 		SetInterface<String> commonItems = set1.intersection(set2);
-		
+
 		Object[] testArray3 = new Object[commonItems.getCurrentSize()];
 		testArray3 = commonItems.toArray();
 		System.out.println("Intersection: ");

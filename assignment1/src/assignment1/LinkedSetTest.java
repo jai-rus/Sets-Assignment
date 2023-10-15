@@ -46,9 +46,9 @@ public class LinkedSetTest {
 		System.out.println();
 		
 		SetInterface<String> set2 = new LinkedSet<>();
-		set2.add("A");
-		set2.add("B");
-		set2.add("C");		
+		set2.add("D");
+		set2.add("E");
+		set2.add("F");		
 		
 		//testing union
 		SetInterface<String> everything = set1.union(set2);
@@ -74,7 +74,7 @@ public class LinkedSetTest {
 		}
 		
 		System.out.println();
-		/*
+		
 		//testing difference
 		SetInterface<String> set3 = new ResizeableArraySet<>();
 		set3.add("A");
@@ -104,6 +104,5 @@ public class LinkedSetTest {
 		for (int i = 0; i < testArray5.length; i++) {
 			System.out.print(testArray5[i] + " ");
 		}
-		*/
 	}
 }
