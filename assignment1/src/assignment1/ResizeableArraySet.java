@@ -169,10 +169,9 @@ public class ResizeableArraySet<T> implements SetInterface<T> {
 		SetInterface<T> commonItems = new ResizeableArraySet<T>(lengthNewSet);
 		
 		T[] otherSetArray = otherSet.toArray();
-		
 		//if this set contains an item from the otherSet, add it to commonItems
-		for (int i = 0; i < lengthNewSet; i++) {
-			if (this.contains(otherSetArray[i])) {
+		for (int i = 0; i < otherSetArray.length; i++) {
+			if (contains(otherSetArray[i]) && (!commonItems.contains(otherSetArray[i]))) {
 				commonItems.add(otherSetArray[i]);
 			}
 		}

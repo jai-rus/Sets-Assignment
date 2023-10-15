@@ -47,9 +47,9 @@ public class ArraySetTest {
 		
 		SetInterface<String> set2 = new ResizeableArraySet<>();
 		//set2.add("B");
-		set2.add("A");
-		set2.add("B");
-		set2.add("C");
+		set2.add("D");
+		set2.add("E");
+		set2.add("F");
 		
 		//testing union
 		SetInterface<String> everything = set1.union(set2);
@@ -67,7 +67,7 @@ public class ArraySetTest {
 		set1.add("D");
 		set2.add("A");
 		SetInterface<String> commonItems = set1.intersection(set2);
-		
+
 		Object[] testArray3 = new Object[commonItems.getCurrentSize()];
 		testArray3 = commonItems.toArray();
 		System.out.println("Intersection: ");

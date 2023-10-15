@@ -46,9 +46,9 @@ public class LinkedSetTest {
 		System.out.println();
 		
 		SetInterface<String> set2 = new LinkedSet<>();
-		set2.add("A");
-		set2.add("B");
-		set2.add("C");		
+		set2.add("D");
+		set2.add("E");
+		set2.add("F");		
 		
 		//testing union
 		SetInterface<String> everything = set1.union(set2);
