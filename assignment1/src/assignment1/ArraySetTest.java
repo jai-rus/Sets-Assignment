@@ -4,6 +4,7 @@ public class ArraySetTest {
 	public static void main(String[] args) {
 		SetInterface<String> set1 = new ResizeableArraySet<>();
 		
+		System.out.println("Using Resizable Array");
 		//Uses isEmpty()
 		System.out.println("Is empty = " + set1.isEmpty());
 		
@@ -36,26 +37,27 @@ public class ArraySetTest {
 		System.out.println("Does this set contain Z: " + set1.contains("Z"));
 		
 		//Uses toArray()
-		Object[] testArray = new Object[3]; 	
+		Object[] testArray = new Object[set1.getCurrentSize()]; 	
 		testArray = set1.toArray();
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < testArray.length; i++) {
 			System.out.print(testArray[i] + " ");
 		}
 		
 		System.out.println();
 		
 		SetInterface<String> set2 = new ResizeableArraySet<>();
-		set2.add("D");
-		set2.add("E");
-		set2.add("F");
+		//set2.add("B");
+		set2.add("A");
+		set2.add("B");
+		set2.add("C");
 		
 		//testing union
 		SetInterface<String> everything = set1.union(set2);
 		
-		Object[] testArray2 = new Object[6];
+		Object[] testArray2 = new Object[everything.getCurrentSize()];
 		testArray2 = everything.toArray();
 		System.out.println("Union: ");
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < testArray2.length; i++) {
 			System.out.print(testArray2[i] + " ");
 		}
 		
@@ -66,10 +68,10 @@ public class ArraySetTest {
 		set2.add("A");
 		SetInterface<String> commonItems = set1.intersection(set2);
 		
-		Object[] testArray3 = new Object[2];
+		Object[] testArray3 = new Object[commonItems.getCurrentSize()];
 		testArray3 = commonItems.toArray();
 		System.out.println("Intersection: ");
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < testArray3.length; i++) {
 			System.out.print(testArray3[i] + " ");
 		}
 		
@@ -88,7 +90,7 @@ public class ArraySetTest {
 		set4.add("E");
 		
 		SetInterface<String> leftOver1 = set3.difference(set4);
-		Object[] testArray4 = new Object[2];
+		Object[] testArray4 = new Object[leftOver1.getCurrentSize()];
 		testArray4 = leftOver1.toArray();
 		System.out.println("Difference: ");
 		for (int i = 0; i < testArray4.length; i++) {
@@ -98,7 +100,7 @@ public class ArraySetTest {
 		System.out.println();
 		
 		SetInterface<String> leftOver2 = set4.difference(set3);
-		Object[] testArray5 = new Object[2];
+		Object[] testArray5 = new Object[leftOver2.getCurrentSize()];
 		testArray5 = leftOver2.toArray();
 		System.out.println("Difference: ");
 		for (int i = 0; i < testArray5.length; i++) {

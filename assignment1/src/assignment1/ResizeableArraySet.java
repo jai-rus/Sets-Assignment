@@ -154,7 +154,8 @@ public class ResizeableArraySet<T> implements SetInterface<T> {
 		
 		return everything;
 	}
-
+	
+	//get intersection of curSet and otherSet
 	public SetInterface<T> intersection(SetInterface<T> otherSet) {
 		int lengthNewSet = 0;
 		
@@ -164,7 +165,6 @@ public class ResizeableArraySet<T> implements SetInterface<T> {
 		} else {
 			lengthNewSet = numOfEntries;
 		}
-		
 		//creates object setinterface
 		SetInterface<T> commonItems = new ResizeableArraySet<T>(lengthNewSet);
 		
@@ -172,7 +172,7 @@ public class ResizeableArraySet<T> implements SetInterface<T> {
 		
 		//if this set contains an item from the otherSet, add it to commonItems
 		for (int i = 0; i < lengthNewSet; i++) {
-			if (contains(otherSetArray[i])) {
+			if (this.contains(otherSetArray[i])) {
 				commonItems.add(otherSetArray[i]);
 			}
 		}
@@ -180,6 +180,7 @@ public class ResizeableArraySet<T> implements SetInterface<T> {
 		return commonItems;
 	}
 	
+	//get difference of curSet and otherSet
 	public SetInterface<T> difference(SetInterface<T> otherSet) {
 		int lengthNewSet = 0;
 		
